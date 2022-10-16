@@ -17,7 +17,11 @@ def nums_key(user_string):
     user_lst = user_string.split()
     final_string = ''
 
+
     for el in user_lst:
+
+        if len(el) > 1 and el[0] != el[-1]:             # проверка правильности ввода данных
+            return None
 
         if len(el) > len(nums_dict[el[0]]):             # проверка на превышение символов
             num_c = len(el) % len(nums_dict[el[0]])
@@ -27,6 +31,7 @@ def nums_key(user_string):
         final_string += nums_dict[el[0]][num_c - 1]
 
     return final_string
+
 
 
 
