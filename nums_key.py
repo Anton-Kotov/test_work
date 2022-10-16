@@ -14,11 +14,9 @@ def nums_key(user_string):
         '0': [' ', '0']
     }
 
-    user_lst = user_string.split()
     final_string = ''
 
-
-    for el in user_lst:
+    for el in user_string.split():
 
         if len(el) > 1 and el[0] != el[-1]:             # проверка правильности ввода данных
             return None
