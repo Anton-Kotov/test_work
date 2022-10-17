@@ -1,26 +1,29 @@
+import datetime
+import json
+
 import validators as validators
 
 
 def password_test(password):
 
-    par1, par2, par3, par4 = False, False, False, False
+    check_lst = [False, False, False, False]     # 4 критерия правильности пароля
 
     if len(password) >= 12:
-        par1 = True
+        check_lst[0] = True
 
     for el in password:
 
         if el.isupper():
-            par2 = True
+            check_lst[1] = True
         elif el.islower():
-            par3 = True
+            check_lst[2] = True
         if el.isdigit():
-            par4 = True
+            check_lst[3] = True
 
-    if par1 == par2 == par3 == par4 == True:
-        return True
-    else:
-        return False
+    for i in check_lst:
+        if not i:
+            return False
+    return True
 
 
 
@@ -40,6 +43,9 @@ def register_user():
               '- Содержит хотя бы 1 цифру')
         password = input('password: ')
 
-    print(username, email, password)
+    return [username, email, password]
 
-register_user()
+user_date = register_user()
+
+with open(f'{user_date[0]}_{datetime.datetime.today().date()}.json', 'w') as f:
+    json.dump(user_date, f)
