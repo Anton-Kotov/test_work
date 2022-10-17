@@ -5,8 +5,7 @@ import validators as validators
 
 
 def password_test(password):
-
-    check_lst = [False, False, False, False]     # 4 критерия правильности пароля
+    check_lst = [False, False, False, False]  # 4 критерия правильности пароля
 
     if len(password) >= 12:
         check_lst[0] = True
@@ -26,9 +25,7 @@ def password_test(password):
     return True
 
 
-
 def register_user():
-
     username = input('username: ')
     email = input('email: ')
 
@@ -44,6 +41,7 @@ def register_user():
         password = input('password: ')
 
     return [username, email, password]
+
 
 user_date = register_user()
 
