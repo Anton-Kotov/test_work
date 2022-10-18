@@ -1,7 +1,5 @@
 import glob
 import json
-
-
 def login():
 
     login_user = input('login: ')
@@ -13,7 +11,6 @@ def login():
             with open(f'{user}', 'r') as f:
                 user_info = json.load(f)
                 if user_info[0] == login_user:
-
                     while user_info[2] != input('password: '):
                         pass
                     return True, user

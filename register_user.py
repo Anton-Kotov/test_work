@@ -1,6 +1,5 @@
 import datetime
 import json
-
 import validators as validators
 
 
@@ -28,7 +27,6 @@ def password_test(password):
 def register_user():
     username = input('username: ')
     email = input('email: ')
-
     while validators.email(email) != True:
         email = input('email: ')
 
@@ -40,10 +38,12 @@ def register_user():
               '- Содержит хотя бы 1 цифру')
         password = input('password: ')
 
+    with open(f'{username}_{datetime.datetime.today().date()}.json', 'w') as f:
+        json.dump([username, email, password], f)
+
     return [username, email, password]
 
 
-user_date = register_user()
 
-with open(f'{user_date[0]}_{datetime.datetime.today().date()}.json', 'w') as f:
-    json.dump(user_date, f)
+
+

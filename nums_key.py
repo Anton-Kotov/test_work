@@ -1,5 +1,6 @@
 
-def nums_key(user_string):
+def send_message():
+    user_string = input('user_message: ')
 
     nums_dict = {
         '1': ['.', ',', '?', '!', ':', ';', '1'],
